@@ -1,5 +1,5 @@
 /**
- * Tweeki-specific script to setup tooltips
+ * vhv-specific script to setup tooltips
  */
 
 jQuery( function( $ ) {

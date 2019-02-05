@@ -23,7 +23,7 @@ $magicWords = array();
  
 /** English (English) */
 $magicWords['en'] = array(
-        'tweekihide' => array( 0, 'tweekihide' ),
-		'tweekibodyclass' => array( 0, 'tweekibodyclass' ),
+        'vhvhide' => array( 0, 'vhvhide' ),
+		'vhvbodyclass' => array( 0, 'vhvbodyclass' ),
 		'MAG_NUMBEREDHEADINGS' => array( 0, '__NUMBEREDHEADINGS__' ),
 );

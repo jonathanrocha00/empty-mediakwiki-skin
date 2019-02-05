@@ -1,49 +1,49 @@
 {
-	"name": "Tweeki",
+	"name": "vhv",
 	"version": "1.1.0",
 	"author": "Tobias Haider",
-	"url": "https://tweeki.thai-land.at",
-	"descriptionmsg": "tweeki-skin-desc",
-	"namemsg": "skinname-tweeki",
+	"url": "https://vhv.thai-land.at",
+	"descriptionmsg": "vhv-skin-desc",
+	"namemsg": "skinname-vhv",
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
 	},
 	"ConfigRegistry": {
-		"tweeki": "GlobalVarConfig::newInstance"
+		"vhv": "GlobalVarConfig::newInstance"
 	},
 	"ValidSkinNames": {
-		"tweeki": "Tweeki"
+		"vhv": "vhv"
 	},
 	"MessagesDirs": {
-		"Tweeki": [
+		"vhv": [
 			"i18n"
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"TweekiMagic": "Tweeki.i18n.magic.php"
+		"vhvMagic": "vhv.i18n.magic.php"
 	},
 	"AutoloadClasses": {
-		"TweekiHooks": "includes/Hooks.php",
-		"SkinTweeki": "includes/SkinTweeki.php",
-		"TweekiTemplate": "includes/TweekiTemplate.php"
+		"vhvHooks": "includes/Hooks.php",
+		"Skinvhv": "includes/Skinvhv.php",
+		"vhvTemplate": "includes/vhvTemplate.php"
 	},
 	"Hooks": {
-		"GetPreferences": "TweekiHooks::onGetPreferences",
-		"ParserFirstCallInit": "TweekiHooks::onParserFirstCallInit",
-		"SkinEditSectionLinks": "TweekiHooks::onSkinEditSectionLinks",
-		"AfterFinalPageOutput": "TweekiHooks::onAfterFinalPageOutput",
-		"MagicWordMagicWords": "TweekiHooks::onMagicWordMagicWords",
-		"MagicWordwgVariableIDs": "TweekiHooks::onMagicWordwgVariableIDs",
-		"InternalParseBeforeLinks": "TweekiHooks::onInternalParseBeforeLinks"
+		"GetPreferences": "vhvHooks::onGetPreferences",
+		"ParserFirstCallInit": "vhvHooks::onParserFirstCallInit",
+		"SkinEditSectionLinks": "vhvHooks::onSkinEditSectionLinks",
+		"AfterFinalPageOutput": "vhvHooks::onAfterFinalPageOutput",
+		"MagicWordMagicWords": "vhvHooks::onMagicWordMagicWords",
+		"MagicWordwgVariableIDs": "vhvHooks::onMagicWordwgVariableIDs",
+		"InternalParseBeforeLinks": "vhvHooks::onInternalParseBeforeLinks"
 	},
 	"ResourceModules": {
-		"skins.tweeki.bootstrap.styles": {
+		"skins.vhv.bootstrap.styles": {
 			"position": "top",
 			"styles": "bootstrap/css/bootstrap.min.css"
 		},
-		"skins.tweeki.styles": {
+		"skins.vhv.styles": {
 			"position": "top",
 			"styles": {
 				"screen.less": {
@@ -63,7 +63,7 @@
 				}
 			}
 		},
-		"skins.tweeki.externallinks.styles": {
+		"skins.vhv.externallinks.styles": {
 			"position": "top",
 			"styles": {
 				"components/externallinks.less": {
@@ -71,7 +71,7 @@
 				}
 			}
 		},
-		"skins.tweeki.corrections.styles": {
+		"skins.vhv.corrections.styles": {
 			"position": "top",
 			"styles": {
 				"components/corrections.less": {
@@ -79,13 +79,13 @@
 				}
 			}
 		},
-		"skins.tweeki.awesome.styles": {
+		"skins.vhv.awesome.styles": {
 			"position": "top",
 			"styles": {
 				"awesome/css/font-awesome.min.css": []
 			}
 		},
-		"skins.tweeki.bootstraptheme.styles": {
+		"skins.vhv.bootstraptheme.styles": {
 			"position": "top",
 			"styles": {
 				"bootstrap/css/bootstrap-theme.min.css": {
@@ -96,7 +96,7 @@
 				}
 			}
 		},
-		"skins.tweeki.cookiewarning.styles": {
+		"skins.vhv.cookiewarning.styles": {
 			"position": "top",
 			"styles": {
 				"components/cookiewarning.less": {
@@ -104,7 +104,7 @@
 				}
 			}
 		},
-		"skins.tweeki.bootstrap.scripts": {
+		"skins.vhv.bootstrap.scripts": {
 			"position": "bottom",
 			"scripts": [
 				"bootstrap/js/bootstrap.min.js"
@@ -113,54 +113,54 @@
 				"mediawiki.jqueryMsg"
 			]
 		},
-		"skins.tweeki.scripts": {
+		"skins.vhv.scripts": {
 			"position": "bottom",
 			"scripts": [
-				"tweeki.js"
+				"vhv.js"
 			],
 			"dependencies": [
-				"skins.tweeki.bootstrap.scripts"
+				"skins.vhv.bootstrap.scripts"
 			],
 			"messages": [
-				"tweeki-toc-top"
+				"vhv-toc-top"
 			]
 		},
-		"skins.tweeki.tooltips": {
+		"skins.vhv.tooltips": {
 			"position": "bottom",
 			"scripts": [
-				"tweeki-tooltips-setup.js"
+				"vhv-tooltips-setup.js"
 			],
 			"dependencies": [
-				"skins.tweeki.scripts"
+				"skins.vhv.scripts"
 			]
 		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "Tweeki"
+		"remoteSkinPath": "vhv"
 	},
 	"config": {
-		"TweekiSkinHideAll": {
+		"vhvSkinHideAll": {
 			"footer-info": true
 		},
-		"TweekiSkinHideable": [
+		"vhvSkinHideable": [
 			"firstHeading"
 		],
-		"TweekiSkinHideAnon": {
+		"vhvSkinHideAnon": {
 			"subnav": true,
 			"PERSONAL": true,
 			"TOOLBOX" : true
 		},
-		"TweekiSkinHideLoggedin": {
+		"vhvSkinHideLoggedin": {
 			"footer-custom": true
 		},
-		"TweekiSkinHideNonAdvanced": {
+		"vhvSkinHideNonAdvanced": {
 			"EDIT-EXT-special": true
 		},
-		"TweekiSkinFooterIcons": false,
-		"TweekiSkinPageRenderer": "self::renderPage",
-		"TweekiSkinNavigationalElements": [],
-		"TweekiSkinSpecialElements": {
+		"vhvSkinFooterIcons": false,
+		"vhvSkinPageRenderer": "self::renderPage",
+		"vhvSkinNavigationalElements": [],
+		"vhvSkinSpecialElements": {
 			"FIRSTHEADING": "self::renderFirstHeading",
 			"TOC": "self::renderTOC",
 			"SEARCH": "self::renderSearch",
@@ -168,48 +168,48 @@
 			"LOGIN-EXT": "self::renderLoginExt",
 			"FOOTER": "self::renderStandardFooter"
 		},
-		"TweekiSkinStyles": [
-			"skins.tweeki.bootstrap.styles",
-			"skins.tweeki.styles",
-			"skins.tweeki.corrections.styles",
-			"skins.tweeki.externallinks.styles"
+		"vhvSkinStyles": [
+			"skins.vhv.bootstrap.styles",
+			"skins.vhv.styles",
+			"skins.vhv.corrections.styles",
+			"skins.vhv.externallinks.styles"
 		],
-		"TweekiSkinUseAwesome": true,
-		"TweekiSkinUseBootstrapTheme": true,
-		"TweekiSkinUseBtnParser": true,
-		"TweekiSkinUseScrollSpy": true,
-		"TweekiSkinUseTooltips": false,
-		"TweekiSkinUseIconWatch": false,
-		"TweekiSkinCustomEditSectionLink": true,
-		"TweekiSkinCustomCSS": [],
-		"TweekiSkinCustomizedBootstrap": null,
-		"TweekiSkinImagePageTOCTabs": false,
-		"TweekiSkinGridNone": { 
-			"mainoffset": 1, 
-			"mainwidth": 10 
+		"vhvSkinUseAwesome": true,
+		"vhvSkinUseBootstrapTheme": true,
+		"vhvSkinUseBtnParser": true,
+		"vhvSkinUseScrollSpy": true,
+		"vhvSkinUseTooltips": false,
+		"vhvSkinUseIconWatch": false,
+		"vhvSkinCustomEditSectionLink": true,
+		"vhvSkinCustomCSS": [],
+		"vhvSkinCustomizedBootstrap": null,
+		"vhvSkinImagePageTOCTabs": false,
+		"vhvSkinGridNone": {
+			"mainoffset": 1,
+			"mainwidth": 10
 		},
-		"TweekiSkinGridLeft": { 
-			"leftoffset": 0, 
-			"leftwidth": 3, 
-			"mainoffset": 0, 
-			"mainwidth": 9 
+		"vhvSkinGridLeft": {
+			"leftoffset": 0,
+			"leftwidth": 3,
+			"mainoffset": 0,
+			"mainwidth": 9
 		},
-		"TweekiSkinGridRight": { 
-			"mainoffset": 0, 
-			"mainwidth": 9, 
-			"rightoffset": 0, 
+		"vhvSkinGridRight": {
+			"mainoffset": 0,
+			"mainwidth": 9,
+			"rightoffset": 0,
 			"rightwidth": 3
 		},
-		"TweekiSkinGridBoth": {
-			"leftoffset": 0, 
-			"leftwidth": 2, 
-			"mainoffset": 0, 
-			"mainwidth": 8, 
-			"rightoffset": 0, 
+		"vhvSkinGridBoth": {
+			"leftoffset": 0,
+			"leftwidth": 2,
+			"mainoffset": 0,
+			"mainwidth": 8,
+			"rightoffset": 0,
 			"rightwidth": 2
 		},
-		"TweekiSkinAdditionalBodyClasses": []
+		"vhvSkinAdditionalBodyClasses": []
 	},
-	"callback": "TweekiHooks::onRegistration",
+	"callback": "vhvHooks::onRegistration",
 	"manifest_version": 1
 }

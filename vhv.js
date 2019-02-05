@@ -1,5 +1,5 @@
 /**
- * Tweeki-specific scripts
+ * vhv-specific scripts
  */
 
 jQuery( function( $ ) {
@@ -46,25 +46,25 @@ jQuery( function( $ ) {
 	 * TOC 
 	 */
 	// move TOC elsewhere
-	if( $( "#tweekiTOC" ).length == 1 && $( "#toc" ).length == 1 ) {
+	if( $( "#vhvTOC" ).length == 1 && $( "#toc" ).length == 1 ) {
 		// toc copies
-		$( '.tweeki-toc' ).each( function() {
+		$( '.vhv-toc' ).each( function() {
 			$(this).append( $( "#toc ul" ).clone() );
 		});
 
 		// to other place than sidebar?
-		if( $( "#tweekiTOC" ).parents( ".sidebar-wrapper" ).length != 1 ) {
-			$( "#toc li" ).appendTo( "#tweekiTOC" );
-			$( "#tweekiDropdownTOC" ).show();
+		if( $( "#vhvTOC" ).parents( ".sidebar-wrapper" ).length != 1 ) {
+			$( "#toc li" ).appendTo( "#vhvTOC" );
+			$( "#vhvDropdownTOC" ).show();
 			}
 		// or to sidebar?
 		else {
-			$( "#toc" ).appendTo( "#tweekiTOC" );
+			$( "#toc" ).appendTo( "#vhvTOC" );
 			$( "#toctitle, .toctitle" ).insertBefore( "#toc" ).children( "h2" )
-				.append( '<a href="javascript:scrollTo(0,0);">' + mw.message( 'tweeki-toc-top' ).plain() + '</a>' );
+				.append( '<a href="javascript:scrollTo(0,0);">' + mw.message( 'vhv-toc-top' ).plain() + '</a>' );
 			/* do we need this? could cause problems on small screens */
 			/* $(window).resize(function() {
-				$("#tweekiTOC").height($(window).height()-$("#tweekiTOC").position().top-130);
+				$("#vhvTOC").height($(window).height()-$("#vhvTOC").position().top-130);
 			}).resize(); */
 						
 			// show toc (hidden by default)

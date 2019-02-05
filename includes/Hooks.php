@@ -1,6 +1,6 @@
 <?php
 /**
- * Hooks for Tweeki skin
+ * Hooks for vhv skin
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
  * @ingroup Skins
  */
 
-class TweekiHooks {
+class vhvHooks {
 
 	protected static $anchorID = 0;
 
@@ -31,18 +31,18 @@ class TweekiHooks {
 	 * @param $parser Parser current parser
 	 */
 	static function onParserFirstCallInit( Parser $parser ) {
-		$parser->setHook( 'TOC', 'TweekiHooks::TOC' );
-		$parser->setHook( 'legend', 'TweekiHooks::legend' );
-		$parser->setHook( 'footer', 'TweekiHooks::footer' );
-		$parser->setHook( 'accordion', 'TweekiHooks::buildAccordion' );
-		$parser->setHook( 'label', 'TweekiHooks::buildLabel' );
+		$parser->setHook( 'TOC', 'vhvHooks::TOC' );
+		$parser->setHook( 'legend', 'vhvHooks::legend' );
+		$parser->setHook( 'footer', 'vhvHooks::footer' );
+		$parser->setHook( 'accordion', 'vhvHooks::buildAccordion' );
+		$parser->setHook( 'label', 'vhvHooks::buildLabel' );
 
-		if ( true === $GLOBALS['wgTweekiSkinUseBtnParser'] ) {
-			$parser->setHook( 'btn', 'TweekiHooks::buildButtons' );
+		if ( true === $GLOBALS['wgvhvSkinUseBtnParser'] ) {
+			$parser->setHook( 'btn', 'vhvHooks::buildButtons' );
 		}
 
-		$parser->setFunctionHook( 'tweekihide', 'TweekiHooks::setHiddenElements' );
-		$parser->setFunctionHook( 'tweekibodyclass', 'TweekiHooks::addBodyclass' );
+		$parser->setFunctionHook( 'vhvhide', 'vhvHooks::setHiddenElements' );
+		$parser->setFunctionHook( 'vhvbodyclass', 'vhvHooks::addBodyclass' );
 
 		return true;
 	}
@@ -51,36 +51,36 @@ class TweekiHooks {
 	 * Customizing registration
 	 */
 	public static function onRegistration() {
-		global $wgTweekiSkinCustomizedBootstrap, $wgResourceModules;
+		global $wgvhvSkinCustomizedBootstrap, $wgResourceModules;
 	
 		/* Load customized bootstrap files */
-		if( isset( $wgTweekiSkinCustomizedBootstrap ) && ! is_null( $wgTweekiSkinCustomizedBootstrap ) ) {
-			$wgResourceModules['skins.tweeki.bootstrap.styles']['localBasePath'] = $wgTweekiSkinCustomizedBootstrap['localBasePath'];
-			$wgResourceModules['skins.tweeki.bootstrap.styles']['remoteExtPath'] = $wgTweekiSkinCustomizedBootstrap['remoteExtPath'];
-			unset( $wgResourceModules['skins.tweeki.bootstrap.styles']['remoteSkinPath'] );
-			$wgResourceModules['skins.tweeki.bootstraptheme.styles']['localBasePath'] = $wgTweekiSkinCustomizedBootstrap['localBasePath'];
-			$wgResourceModules['skins.tweeki.bootstraptheme.styles']['remoteExtPath'] = $wgTweekiSkinCustomizedBootstrap['remoteExtPath'];
-			unset( $wgResourceModules['skins.tweeki.bootstraptheme.styles']['remoteSkinPath'] );
-			$wgResourceModules['skins.tweeki.bootstrap.scripts']['localBasePath'] = $wgTweekiSkinCustomizedBootstrap['localBasePath'];
-			$wgResourceModules['skins.tweeki.bootstrap.scripts']['remoteExtPath'] = $wgTweekiSkinCustomizedBootstrap['remoteExtPath'];
-			unset( $wgResourceModules['skins.tweeki.bootstrap.scripts']['remoteSkinPath'] );
+		if( isset( $wgvhvSkinCustomizedBootstrap ) && ! is_null( $wgvhvSkinCustomizedBootstrap ) ) {
+			$wgResourceModules['skins.vhv.bootstrap.styles']['localBasePath'] = $wgvhvSkinCustomizedBootstrap['localBasePath'];
+			$wgResourceModules['skins.vhv.bootstrap.styles']['remoteExtPath'] = $wgvhvSkinCustomizedBootstrap['remoteExtPath'];
+			unset( $wgResourceModules['skins.vhv.bootstrap.styles']['remoteSkinPath'] );
+			$wgResourceModules['skins.vhv.bootstraptheme.styles']['localBasePath'] = $wgvhvSkinCustomizedBootstrap['localBasePath'];
+			$wgResourceModules['skins.vhv.bootstraptheme.styles']['remoteExtPath'] = $wgvhvSkinCustomizedBootstrap['remoteExtPath'];
+			unset( $wgResourceModules['skins.vhv.bootstraptheme.styles']['remoteSkinPath'] );
+			$wgResourceModules['skins.vhv.bootstrap.scripts']['localBasePath'] = $wgvhvSkinCustomizedBootstrap['localBasePath'];
+			$wgResourceModules['skins.vhv.bootstrap.scripts']['remoteExtPath'] = $wgvhvSkinCustomizedBootstrap['remoteExtPath'];
+			unset( $wgResourceModules['skins.vhv.bootstrap.scripts']['remoteSkinPath'] );
 		}
 	}
 
 	/**
 	 * GetPreferences hook
 	 *
-	 * Adds Tweeki-releated items to the preferences
+	 * Adds vhv-releated items to the preferences
 	 *
 	 * @param $user User current user
 	 * @param $defaultPreferences array list of default user preference controls
 	 */
 	public static function onGetPreferences( $user, &$defaultPreferences ) {
-		$defaultPreferences['tweeki-advanced'] = array(
+		$defaultPreferences['vhv-advanced'] = array(
 			'type' => 'toggle',
-			'label-message' => 'prefs-tweeki-advanced-desc',
-			'section' => 'rendering/tweeki-advanced',
-			'help-message' => 'prefs-tweeki-advanced-help'
+			'label-message' => 'prefs-vhv-advanced-desc',
+			'section' => 'rendering/vhv-advanced',
+			'help-message' => 'prefs-vhv-advanced-help'
 		);
 		return true;
 	}
@@ -89,7 +89,7 @@ class TweekiHooks {
 	 * Enable TOC
 	 */
 	static function TOC( $input, array $args, Parser $parser, PPFrame $frame ) {
-		return array( '<div class="tweeki-toc">' . $input . '</div>' );
+		return array( '<div class="vhv-toc">' . $input . '</div>' );
 	}
 
 	/**
@@ -113,12 +113,12 @@ class TweekiHooks {
 	 * @return string
 	 */
 	static function setHiddenElements( Parser $parser ) {
-		global $wgTweekiSkinHideAll, $wgTweekiSkinHideable;
+		global $wgvhvSkinHideAll, $wgvhvSkinHideable;
 		$parser->disableCache();
 		// Argument 0 is $parser, so begin iterating at 1
 		for ( $i = 1; $i < func_num_args(); $i++ ) {
-			if ( in_array ( func_get_arg( $i ), $wgTweekiSkinHideable ) ) {
-				$wgTweekiSkinHideAll[] = func_get_arg( $i );
+			if ( in_array ( func_get_arg( $i ), $wgvhvSkinHideable ) ) {
+				$wgvhvSkinHideAll[] = func_get_arg( $i );
 			}
 		}
 		return '';
@@ -134,7 +134,7 @@ class TweekiHooks {
 		$parser->disableCache();
 		// Argument 0 is $parser, so begin iterating at 1
 		for ( $i = 1; $i < func_num_args(); $i++ ) {
-			$GLOBALS['wgTweekiSkinAdditionalBodyClasses'][] = func_get_arg( $i );
+			$GLOBALS['wgvhvSkinAdditionalBodyClasses'][] = func_get_arg( $i );
 		}
 		return '';
 	}
@@ -218,8 +218,8 @@ class TweekiHooks {
 
 		foreach ( $buttongroups as $buttongroup ) {
 			$buttons = array();
-			$buttons = TweekiHooks::parseButtons( $buttongroup, $parser, $frame );
-			$renderedButtons .= TweekiHooks::renderButtons( $buttons, $args );
+			$buttons = vhvHooks::parseButtons( $buttongroup, $parser, $frame );
+			$renderedButtons .= vhvHooks::renderButtons( $buttons, $args );
 		}
 
 		// more than one buttongroup build a toolbar
@@ -251,7 +251,7 @@ class TweekiHooks {
 			
 			// simple buttons
 			if ( strpos( $line, '*' ) !== 0 ) {
-				$buttons = array_merge( $buttons, TweekiHooks::parseButtonLink( trim( $line ), $parser, $frame ) );
+				$buttons = array_merge( $buttons, vhvHooks::parseButtonLink( trim( $line ), $parser, $frame ) );
 				end( $buttons );
 				$currentparentkey = key($buttons);
 			}
@@ -268,7 +268,7 @@ class TweekiHooks {
 				if ( !isset( $buttons[$currentparentkey]['items'] ) ) {
 					$buttons[$currentparentkey]['items'] = array();
 				}
-				$buttons[$currentparentkey]['items'] = array_merge( $buttons[$currentparentkey]['items'], TweekiHooks::parseButtonLink( $cleanline, $parser, $frame ) );
+				$buttons[$currentparentkey]['items'] = array_merge( $buttons[$currentparentkey]['items'], vhvHooks::parseButtonLink( $cleanline, $parser, $frame ) );
 			}
 		}
 		return $buttons;
@@ -301,7 +301,7 @@ class TweekiHooks {
 				$semanticHits = explode( ',', $semanticHits );
 				$semanticLinks = array();
 				foreach ( $semanticHits as $semanticHit ) {
-					$semanticLink = TweekiHooks::parseButtonLink( $semanticHit, $parser, $frame );
+					$semanticLink = vhvHooks::parseButtonLink( $semanticHit, $parser, $frame );
 					$semanticLinks[] = $semanticLink[0];
 				}
 				return $semanticLinks;
@@ -539,16 +539,16 @@ class TweekiHooks {
 			// dropdown
 			if ( isset( $button['items'] ) ) {
 				if ( isset( $options['dropdownclass'] ) ) {
-					$renderedButtons .= TweekiHooks::buildDropdown( $button, $options['dropdownclass'] );
+					$renderedButtons .= vhvHooks::buildDropdown( $button, $options['dropdownclass'] );
 				}
 				else {
-					$renderedButtons .= TweekiHooks::buildDropdown( $button );
+					$renderedButtons .= vhvHooks::buildDropdown( $button );
 				}
 			}
 
 			// simple button
 			else {
-				$renderedButtons .= TweekiHooks::makeLink( $button, $btnoptions );
+				$renderedButtons .= vhvHooks::makeLink( $button, $btnoptions );
 			}
 		}
 		// close wrapper
@@ -570,14 +570,14 @@ class TweekiHooks {
 
 		// split dropdown
 		if ( isset( $dropdown['href_implicit'] ) && $dropdown['href_implicit'] === false ) {
-			$renderedDropdown .= TweekiHooks::makeLink( $dropdown );
+			$renderedDropdown .= vhvHooks::makeLink( $dropdown );
 			$caret = array(
 				'class' => 'dropdown-toggle ' . $dropdown['class'],
 				'href' => '#',
 				'html' => '&zwnj;<b class="caret"></b>',
 				'data-toggle' => 'dropdown'
 				);
-			$renderedDropdown .= TweekiHooks::makeLink( $caret );
+			$renderedDropdown .= vhvHooks::makeLink( $caret );
 		}
 
 		// ordinary dropdown
@@ -586,10 +586,10 @@ class TweekiHooks {
 			$dropdown['data-toggle'] = 'dropdown';
 			$dropdown['html'] = $dropdown['html'] . ' <b class="caret"></b>';
 			$dropdown['href'] = '#';
-			$renderedDropdown .= TweekiHooks::makeLink( $dropdown );
+			$renderedDropdown .= vhvHooks::makeLink( $dropdown );
 		}
 
-		$renderedDropdown .= TweekiHooks::buildDropdownMenu( $dropdown['items'], $dropdownclass );
+		$renderedDropdown .= vhvHooks::buildDropdownMenu( $dropdown['items'], $dropdownclass );
 		return $renderedDropdown;
 	}
 
@@ -614,7 +614,7 @@ class TweekiHooks {
 			// standard menu entry
 			else {
 				$entry['tabindex'] = '-1';
-				$renderedMenu .= TweekiHooks::makeListItem( $entry );
+				$renderedMenu .= vhvHooks::makeListItem( $entry );
 			}
 		}
 
@@ -736,7 +736,7 @@ class TweekiHooks {
 		if ( isset( $item['links'] ) ) {
 			$html = '';
 			foreach ( $item['links'] as $linkKey => $link ) {
-				$html .= TweekiHooks::makeLink( $link, $options );
+				$html .= vhvHooks::makeLink( $link, $options );
 			}
 		} else {
 			$link = $item;
@@ -750,7 +750,7 @@ class TweekiHooks {
 				// generating tooltips and accesskeys.
 				$link['single-id'] = $item['id'];
 			}
-			$html = TweekiHooks::makeLink( $link, $options );
+			$html = vhvHooks::makeLink( $link, $options );
 		}
 
 		$attrs = array();
@@ -783,12 +783,12 @@ class TweekiHooks {
 	 */
 	static function onSkinEditSectionLinks( $skin, $title, $section, $tooltip, &$links, $lang = false ) {
 		if( 
-			$skin->getSkinName() == 'tweeki' 
-			&& $GLOBALS['wgTweekiSkinCustomEditSectionLink'] == true 
+			$skin->getSkinName() == 'vhv' 
+			&& $GLOBALS['wgvhvSkinCustomEditSectionLink'] == true 
 		) {
-			$icon = wfMessage( 'tweeki-editsection-icon' )->inLanguage( $lang )->parse();
-			$text = wfMessage( 'tweeki-editsection-text' )->inLanguage( $lang )->parse();
-			$class = wfMessage( 'tweeki-editsection-class' )->inLanguage( $lang )->parse();
+			$icon = wfMessage( 'vhv-editsection-icon' )->inLanguage( $lang )->parse();
+			$text = wfMessage( 'vhv-editsection-text' )->inLanguage( $lang )->parse();
+			$class = wfMessage( 'vhv-editsection-class' )->inLanguage( $lang )->parse();
 			$text = $icon . ( ( $icon != '' ) ? ' ' : '' ) . $text;
 
 			$links['editsection']['text'] = $text;
@@ -804,7 +804,7 @@ class TweekiHooks {
 	 * @param $outputPage OutputPage
 	 */
 	public static function onAfterFinalPageOutput( $outputPage ) {
-		if( $outputPage->getTitle()->getNamespace() == 6 && $GLOBALS['wgTweekiSkinImagePageTOCTabs'] == true ) {
+		if( $outputPage->getTitle()->getNamespace() == 6 && $GLOBALS['wgvhvSkinImagePageTOCTabs'] == true ) {
 			$out = ob_get_clean();
 			$out = str_replace( '<ul id="filetoc">', '<ul id="tw-filetoc" class="nav nav-tabs nav-justified">', $out );
 			$out = str_replace( '<li><a href="#file">', '<li class="active"><a href="#file" class="tab-toggle" data-toggle="tab">', $out );

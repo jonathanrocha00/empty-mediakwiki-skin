@@ -1,6 +1,6 @@
 <?php
 /**
- * Tweeki - Tweaked version of Vector, using Twitter Bootstrap.
+ * vhv - Tweaked version of Vector, using Twitter Bootstrap.
 
  *
  * This program is free software; you can redistribute it and/or modify
@@ -23,26 +23,26 @@
  */
 
 /**
- * Skin subclass for Tweeki
+ * Skin subclass for vhv
  * @ingroup Skins
  */
-class SkinTweeki extends SkinTemplate {
-	public $skinname = 'tweeki';
-	public $stylename = 'Tweeki';
-	public $template = 'TweekiTemplate';
+class Skinvhv extends SkinTemplate {
+	public $skinname = 'vhv';
+	public $stylename = 'vhv';
+	public $template = 'vhvTemplate';
 	public $useHeadElement = true;
 	/**
 	 * @var Config
 	 */
-	private $tweekiConfig;
+	private $vhvConfig;
 	private $responsiveMode = false;
 
 	public function __construct() {
-		$this->tweekiConfig = \MediaWiki\MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'tweeki' );
+		$this->vhvConfig = \MediaWiki\MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'vhv' );
 	}
 
-	protected static $bodyClasses = array( 'tweeki-animateLayout' );
+	protected static $bodyClasses = array( 'vhv-animateLayout' );
 
 
 	/**
@@ -53,15 +53,15 @@ class SkinTweeki extends SkinTemplate {
 		parent::initPage( $out );
 
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
-		$out->addModules( 'skins.tweeki.scripts' );
-		if( $this->tweekiConfig->get( 'TweekiSkinUseTooltips' ) ) {
-			$out->addModules( 'skins.tweeki.tooltips' );
+		$out->addModules( 'skins.vhv.scripts' );
+		if( $this->vhvConfig->get( 'vhvSkinUseTooltips' ) ) {
+			$out->addModules( 'skins.vhv.tooltips' );
 		}
-		if( $out->getUser()->getOption( 'tweeki-advanced' ) ) {
+		if( $out->getUser()->getOption( 'vhv-advanced' ) ) {
 			static::$bodyClasses[] = 'advanced';
 		}
-		Hooks::run( 'SkinTweekiAdditionalBodyClasses', array( $this, &$GLOBALS['wgTweekiSkinAdditionalBodyClasses'] ) );
-		static::$bodyClasses = array_merge( static::$bodyClasses, $GLOBALS['wgTweekiSkinAdditionalBodyClasses'] );
+		Hooks::run( 'SkinvhvAdditionalBodyClasses', array( $this, &$GLOBALS['wgvhvSkinAdditionalBodyClasses'] ) );
+		static::$bodyClasses = array_merge( static::$bodyClasses, $GLOBALS['wgvhvSkinAdditionalBodyClasses'] );
 	}
 
 	/**
@@ -70,21 +70,21 @@ class SkinTweeki extends SkinTemplate {
 	 */
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
-		
-		$styles = $GLOBALS['wgTweekiSkinStyles']; 
-		if( $GLOBALS['wgTweekiSkinUseAwesome'] === true ) {
-			$styles[] = 'skins.tweeki.awesome.styles';
+
+		$styles = $GLOBALS['wgvhvSkinStyles'];
+		if( $GLOBALS['wgvhvSkinUseAwesome'] === true ) {
+			$styles[] = 'skins.vhv.awesome.styles';
 		}
-		if( $GLOBALS['wgTweekiSkinUseBootstrapTheme'] === true ) {
-			$styles[] = 'skins.tweeki.bootstraptheme.styles';
+		if( $GLOBALS['wgvhvSkinUseBootstrapTheme'] === true ) {
+			$styles[] = 'skins.vhv.bootstraptheme.styles';
 		}
 		if( isset( $GLOBALS['wgCookieWarningEnabled'] ) && $GLOBALS['wgCookieWarningEnabled'] === true ) {
-			$styles[] = 'skins.tweeki.cookiewarning.styles';
+			$styles[] = 'skins.vhv.cookiewarning.styles';
 		}
-		foreach( $GLOBALS['wgTweekiSkinCustomCSS'] as $customstyle ) {
+		foreach( $GLOBALS['wgvhvSkinCustomCSS'] as $customstyle ) {
 			$styles[] = $customstyle;
 		}
-		Hooks::run( 'SkinTweekiStyleModules', array( $this, &$styles ) );
+		Hooks::run( 'SkinvhvStyleModules', array( $this, &$styles ) );
 		$out->addModuleStyles( $styles );
 	}
 
@@ -110,7 +110,7 @@ class SkinTweeki extends SkinTemplate {
 	 * @return QuickTemplate
 	 */
 	public function setupTemplate( $classname, $repository = false, $cache_dir = false ) {
-		return new $classname( $this->tweekiConfig );
+		return new $classname( $this->vhvConfig );
 	}
 
 	/**

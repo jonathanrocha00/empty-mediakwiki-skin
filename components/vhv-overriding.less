@@ -1,0 +1,173 @@
+
+/**
+ * vhv override
+ *
+ * This CSS file overrides all other files.
+ */
+
+/* How to edit a Mediawiki page: Alt + Shift + E*/
+
+/* Overriding Boostrap to center text without changing HTML*/
+.col-md-9 {
+    width: 100%;
+}
+
+body {
+    font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5em;
+    color: #444;
+}
+
+#content {
+    padding: 30px !important;
+}
+
+/* Hidding elements from the page */
+#mw-navigation {
+    display: none;
+}
+#siteNotice {
+    display: none;
+}
+#sidebar-right { /*This sidebar contained the button that linked to the Mediawiki CSS editor*/
+    display: none;
+}
+#catlinks {
+    display: none !important;
+}
+#footer {
+	display: none !important;
+}
+
+/* Navigation */
+#navbar { font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+.navbar-inner { background-color: white}
+.navbar-brand img { height: 40px; margin-top: -8px;margin-right: 3em;}
+.navbar-default .navbar-nav>li>a { padding-top: 20px; font-size: 16px; }
+
+
+nav.category-browser {background-color: white;padding-left: .5em;font-size: 16px;line-height: 1.4em;}
+nav.category-browser h2 {font-size: 1.4em; border:none; margin-top: .5em;}
+nav.category-browser ul {padding-left: 1em;}
+
+/* Headings */
+.page-header {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    border: none;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #222222 !important;
+    font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    letter-spacing: 1px !important;
+}
+h2 {font-size: 1.7em; margin-bottom: .7em; border: none !important;}
+h3 {font-size: 1.5em !important; line-height: normal !important; color: #008000;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1.2em;}
+
+h1 {
+    font-size: 28px !important;
+    font-weight: 500 !important;
+    line-height: 1.1em !important;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+/* Line after H1 - Reference: http://jsfiddle.net/Puigcerber/vLwDf/ */
+h1:before, h1:after {
+    background-color: #d9d9d9;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+h1:before {
+    right: 0.5em;
+    margin-left: -100%;
+}
+h1:after {
+    left: 0.5em;
+    margin-right: -100%;
+}
+
+/* Default links */
+a {
+    font-weight: 500 !important;
+    color: #7fb52f !important;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: #7fb52f !important;
+    text-decoration: underline;
+}
+a:active, a:hover {
+    outline: 0;
+}
+
+.mw-collapsible-toggle {
+    color: #7fb52f !important;
+    font-weight: bold !important;
+}
+
+/* Tables */
+table, th, td {
+    background: white !important;
+    background-color: white !important;
+    border: 1px solid #7fb52f !important;
+}
+
+th, td {
+    padding: 3px 10px !important;
+}
+
+th {
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    border-right: 1px solid black !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+
+}
+
+/* Top navigation links */
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #333;
+    background-color: transparent;
+    color: #fd8103;
+}
+
+/* Sidebar */
+#tweekiTOC #toctitle h2, #tweekiTOC .toctitle h2 {border-bottom: none; margin-top: .5em;}
+#sidebar-left { padding-left: 2em; }
+
+/* Media-queries specific adjustments */
+@media (min-width: 992px) {
+    #sidebar-left { padding-left: 2em; font-size: .9em;line-height: 1.3em;overflow-y: auto; height: 93vh;position:absolute;}
+}
+
+@media (min-width: 768px) {
+    #content { padding: 1em;}
+}
+
+/* Expand anchor to header width in accordions */
+.panel-title a {
+    display: block;
+    padding: 10px 15px;
+    margin: -10px -15px;
+}
+
+/* Change separation */
+ .panel { margin-bottom: .5em; width: 95%;}
+
+/* Footer */
+#catlinks {display:block;border:none; border-top: 1px solid #aaa;}
+
+/* Geshi custom */
+.mw-highlight .nt { color: #17C5D8; }
+.mw-highlight .nv { color: #D90368; }
+.mw-highlight .s2 { color: #888; }
